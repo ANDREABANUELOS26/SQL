@@ -1,0 +1,29 @@
+--create a baked_goods database 
+
+
+CREATE TABLE baked_goods(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, rate INTEGER);
+
+
+INSERT INTO baked_goods VALUES (1,"cookies",1.50,12,1);
+INSERT INTO baked_goods VALUES (2,"brownies",2.50,12,2);
+INSERT INTO baked_goods VALUES (3,"pie slice",3,8,6);
+INSERT INTO baked_goods VALUES (4,"cake slices",4,10,5);
+INSERT INTO baked_goods VALUES (5,"cinnamon rolls",4,10,3);
+INSERT INTO baked_goods VALUES (6,"coffee cake",3.50,6,7);
+INSERT INTO baked_goods VALUES (7,"cheese cake",20,3,4);
+INSERT INTO baked_goods VALUES (8,"scones",2.50,5,8);
+INSERT INTO baked_goods VALUES (9,"macarrons",3,15,9);
+INSERT INTO baked_goods VALUES (10,"muffins",3,7,5);
+INSERT INTO baked_goods VALUES (11,"cupcakes",4,20,3);
+INSERT INTO baked_goods VALUES (12,"pop tart",3,10,2);
+INSERT INTO baked_goods VALUES (13,"bagels",2,9,10);
+INSERT INTO baked_goods VALUES (14,"bicuits",1.50,7,4);
+INSERT INTO baked_goods VALUES (15,"bread",6,13,1);
+
+
+--display the database by quantity 
+SELECT * FROM baked_goods 
+ORDER BY quantity;
+
+--what is the average price of a baked good?
+SELECT AVG(price) FROM baked_goods
