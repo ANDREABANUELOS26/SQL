@@ -1,0 +1,52 @@
+/* Create table about musical artist and their real name */
+CREATE TABLE artist (id INTEGER PRIMARY KEY,stage_name TEXT, real_name TEXT);
+INSERT INTO  artist VALUES (1,"Bad Bunny","Benito Antonio Martínez Ocasio");
+INSERT INTO  artist VALUES (2,"H.E.R","Gabriella Sarmiento Wilson");
+INSERT INTO  artist VALUES (3,"Taylor Swift","Taylor Alison Swift");
+INSERT INTO  artist VALUES (4,"Peso Pluma","Hassan Emilio Kabande Laija");
+INSERT INTO  artist VALUES (5,"Jason Aldean","Jason Aldine Williams");
+INSERT INTO  artist VALUES (6,"SZA","Solána Imani Rowe");
+INSERT INTO  artist VALUES (7,"J.Cole","Jermaine Lamarr Cole");
+INSERT INTO  artist VALUES (8,"Ed Sheeran","Edward Christopher Sheeran");
+INSERT INTO  artist VALUES (9,"Post Malone","Austin Richard Post");
+INSERT INTO  artist VALUES (10,"Dua Lipa","Dua Lipa");
+
+/*Create a table about the artist and their popular songs */
+CREATE TABLE songs (artist_id INTEGER, title TEXT, release_year INTEGER, streams INTEGER);
+INSERT INTO songs VALUES (1,"Me Porto Bonito",2022,1455082523);
+INSERT INTO songs VALUES (2,"Could've Been",2018,347991407);
+INSERT INTO songs VALUES (3,"Blank Space",2014,1376161909);
+INSERT INTO songs VALUES (4,"Ella Baila Sola",2023,757265517);
+INSERT INTO songs VALUES (5,"You Make It Easy",2018,407553972); INSERT INTO songs VALUES (6,"Kill Bill",2023,1191673184);
+INSERT INTO songs VALUES (7,"No Role Modelz",2014,1803978140);
+INSERT INTO songs VALUES (8,"Perfect",2017,2572272735);
+INSERT INTO songs VALUES (9,"Sunflower",2018,2828649308);
+INSERT INTO songs VALUES (10,"Don't Start Now",2019,2312901780);
+
+/*Create a table about the artist and their last tour*/
+CREATE TABLE tour (artist_id INTEGER, tour_name TEXT, start_date INTEGER, end_date INTEGER);
+INSERT INTO tour VALUES (1, 'El Ultimo Tour Del Mundo', '2022-02-09', '2022-04-03');
+INSERT INTO tour VALUES (2, 'Back On My Mind', '2022-04-08', '2022-06-19');
+INSERT INTO tour VALUES (3, 'Era Tour', '2023-08-03', '2024-11-03');
+INSERT INTO tour VALUES (4, 'Double P', '2023-07-07', '2023-10-21');
+INSERT INTO tour VALUES (5, 'Highway Desperado', '2023-08-04', '2023-10-27');
+INSERT INTO tour VALUES (6, 'SOS', '2023-02-21', '2022-10-29');
+INSERT INTO tour VALUES (7, 'Off Season', '2021-09-24', '2022-04-03');
+INSERT INTO tour VALUES (8, 'Subtract', '2023-05-19', '2022-09-23');
+INSERT INTO tour VALUES (9, 'If Y’all Weren’t Here I’d Be Crying', '2023-07-08', '2023-08-19');
+INSERT INTO tour VALUES (10, 'Future Nostalgia', '2022-02-09', '2022-11-28');
+
+/* Join tables 'songs and 'artist' to display stage name, title and streams. ORDER BY streams from highest to lowest*/
+SELECT artist.stage_name, songs.title, songs.streams
+    FROM songs
+    JOIN artist
+    ON artist.id=songs.artist_id
+    ORDER BY streams desc;
+    
+/*Join tables 'songs and 'tour' to display streams, title and tour. WHERE streams are over 1000000000, Order by streams*/
+SELECT songs.streams, songs.title, tour.tour_name FRO*M songs
+    JOIN tour
+    ON songs.artist_id=tour.artist_id
+    WHERE streams > 1000000000
+    ORDER BY streams;
+
