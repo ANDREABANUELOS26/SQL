@@ -74,4 +74,13 @@ FROM BIT_DB.FebSales
 WHERE Product LIKE '%headphone%'
 GROUP BY Product;
 
+/*What was the average amount spent per account in February?*/
+SELECT AVG(Quantity * price)
+FROM BIT_DB.FebSales 
+LEFT JOIN BIT_DB.customers
+ON customers.order_id=FebSales.orderID
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID';
+
+
 
