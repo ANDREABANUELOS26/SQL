@@ -59,7 +59,7 @@ SELECT
 FROM sales
 GROUP BY PaymentType;
 
---Show me transactions made when the product counch was sold.--
+--Show me transactions made when the product 'Couch' was sold.--
 SELECT *
 FROM sales
 WHERE price = '3600'
